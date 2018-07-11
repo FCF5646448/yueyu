@@ -1,31 +1,37 @@
 {
-  "pages":[
+  "pages": [
+    "pages/read/read",
+    "pages/books/books",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "书房",
-      "iconPath": "images/tabBar/read.png",
-      "selectedIconPath": "images/tabBar/read_select.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "图书馆",
-      "iconPath": "images/tabBar/books.png",
-      "selectedIconPath": "images/tabBar/books_select.png"
-    },{
-      "pagePath": "pages/index/index",
-      "text": "我的",
-      "iconPath": "images/tabBar/mine.png",
-      "selectedIconPath": "images/tabBar/mine_select.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/read/read",
+        "text": "书房",
+        "iconPath": "images/tabBar/read.png",
+        "selectedIconPath": "images/tabBar/read_select.png"
+      },
+      {
+        "pagePath": "pages/books/books",
+        "text": "图书馆",
+        "iconPath": "images/tabBar/books.png",
+        "selectedIconPath": "images/tabBar/books_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabBar/mine.png",
+        "selectedIconPath": "images/tabBar/mine_select.png"
+      }
+    ]
   }
-
 }

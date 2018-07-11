@@ -1,0 +1,25 @@
+.main_container {
+    position: relative;
+    width: 750rpx;
+    height: 100vh;
+    background: #FD9494;
+}
+
+.container {
+    position: absolute;  /*使用absolute的原因是因为为了防止第一个子视图有margin-top时，造成顶部留白的情况*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-bottom: 20rpx;
+} 
+
+.content {
+    margin: 20rpx auto 0 auto;
+    width: 710rpx;
+    height: 300rpx;
+    background: #ddd;
+    border-radius: 16rpx;
+    font-size: 80rpx;
+    line-height: 300rpx;
+    text-align: center;
+}

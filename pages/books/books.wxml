@@ -1,0 +1,7 @@
+<scroll-view class="main_container" scroll-y>
+    <view class="container">
+        <view class="content" wx:for="{{11}}" wx:key="item">
+            {{item}}
+        </view>
+    </view>
+</scroll-view>
