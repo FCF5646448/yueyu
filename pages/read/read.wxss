@@ -1,0 +1,9 @@
+.scroll_item{
+  flex-direction: row;
+  width: 320px
+}
+
+.detailBox{
+  background: #666666;
+  border-bottom: 1px #666666 solid
+}

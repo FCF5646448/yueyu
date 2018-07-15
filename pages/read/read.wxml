@@ -1,4 +1,4 @@
-<scroll-view class="scroll-view_H" scroll-x scroll-with-animation style="width: 100%;height:{{windowHeight}}px" bindscroll="getSelectItem">
+<scroll-view class="scroll-view_H" scroll-x="true" scroll-with-animation style="width: 100%;height:{{windowHeight}}px" bindscroll="getSelectItem">
      <block wx:for="{{proList}}"  wx:key="unique" wx:for-index="id" wx:for-item="item">
       <view class="scroll_item {{item.selected ? 'selected' : ''}}" data-index='{{item.index}}' bindtap='selectProItem'>
         <view class='proImg'><image src="{{item.proUrl}}" class="slide-image"  mode="widthFix"/></view>
