@@ -1,7 +1,20 @@
-<scroll-view class="main_container" scroll-y>
-    <view class="container">
-        <view class="content" wx:for="{{11}}" wx:key="item">
-            {{item}}
-        </view>
+
+<view class='contain'>
+
+
+  <!-- <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading> -->
+  <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
+    <image class="item-img" src="{{item.novel_cover}}"></image>
+    <view class="detail">
+      <text class="item-name">{{item.novel_name}}</text>
+      <view class="tips">
+          <text class="item-info">{{item.novel_abstract}}</text>
+      </view>
     </view>
-</scroll-view>
+  </view>
+  <!-- <view>{{audioData}}</view>
+  <import src ="../common/playerFoot.wxml"/>
+  <template is="playerFoot"/> -->
+</view>

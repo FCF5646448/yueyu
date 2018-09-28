@@ -4,6 +4,9 @@ App({
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
+    wx.setEnableDebug({
+      enableDebug: true //调试模式
+    })
     wx.setStorageSync('logs', logs)
 
     // 登录
@@ -34,6 +37,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    selectBook:null
   }
 })

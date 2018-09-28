@@ -1,0 +1,6 @@
+<!--pages/bookdetail/bookdetail.wxml-->
+<view>          
+  <view class="content">
+    <image class="big-img" src="{{novelImag}}"></image>
+  </view> 
+</view>

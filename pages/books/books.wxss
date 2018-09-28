@@ -1,25 +1,38 @@
-.main_container {
-    position: relative;
-    width: 750rpx;
-    height: 100vh;
-    background: #FD9494;
+.scroll-view-item {
+  padding: 1rem 10px;
+  display: flex;
+  border-bottom: 1px solid #e6e8eb;
 }
-
-.container {
-    position: absolute;  /*使用absolute的原因是因为为了防止第一个子视图有margin-top时，造成顶部留白的情况*/
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding-bottom: 20rpx;
-} 
-
-.content {
-    margin: 20rpx auto 0 auto;
-    width: 710rpx;
-    height: 300rpx;
-    background: #ddd;
-    border-radius: 16rpx;
-    font-size: 80rpx;
-    line-height: 300rpx;
-    text-align: center;
+.item-img {
+  height: 4rem;
+  flex: 1;
+  display: block;
+}
+.detail {
+  height: 4rem;
+  line-height: 1.25em;
+  flex: 2;
+  padding: 0 10px;
+  position: relative;
+}
+.item-name {
+  font-size: .75rem;
+  overflow: hidden;
+  height: 2.5rem;
+  display: block;
+}
+.tips {
+  font-size: .65rem;
+  position: absolute;
+  bottom: 0;
+  color: #828a92;
+  display: flex;
+}
+.item-info {
+  word-break: break-all;
+  float: left;
+  flex: 3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1rem;
 }

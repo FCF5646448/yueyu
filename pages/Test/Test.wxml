@@ -1,11 +1,12 @@
-<view class='contain'>
-  <view>
-    <button type='primary' bindtap='loadData'>加载数据</button>
+<!-- <view class="container">   -->
+  <view class="weui-grids">    
+    <view class="weui-grid" wx:for="{{list}}" wx:key="name">      
+      <navigator url="{{item.novel_id}}">        
+        <view class="weui-grid__icon">          
+          <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
+        </view>        
+        <text class="weui-grid__label">{{item.novel_name}}</text>      
+      </navigator>    
+    </view>  
   </view>
-
-  <view wx:for="{{newsData}}">
-    <image style="width:{{windowWidth}}px;height:200px" src="{{item.thumbnail_pic_s}}"></image>
-  </view>
-
-
-</view>
+<!-- </view> -->

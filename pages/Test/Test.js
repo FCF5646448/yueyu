@@ -1,28 +1,30 @@
-
-// pages/Test/Test.js
-const Print = require('../../utils/print.js')
+var app = getApp()
 
 Page({
   data: {
-    newsData:''
+    list: []
   },
-  onLoad: function() {
-    Print.printLog("test onLoad");
+  loading: false,
+
+  onLoad: function () {
+    this.loadData()
   },
-  loadData: function(event) {
+
+  loadData: function () {
     var that = this;
     wx.request({
-      url: 'https://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=top&count=10',
+      url: 'http://132.232.54.132:8081/api/v1/novels/sources',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
-          newsData:res.data
+          list: res.data.info,
+          hidden: true
         });
       }
     })
-
-  }
+  },
 })
+

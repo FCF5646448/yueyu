@@ -4,7 +4,8 @@
     "pages/books/books",
     "pages/mine/mine",
     "pages/logs/logs",
-    "pages/Test/Test"
+    "pages/Test/Test",
+    "pages/bookdetail/bookdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,13 +17,13 @@
     "list": [
       {
         "pagePath": "pages/read/read",
-        "text": "书房",
+        "text": "书架",
         "iconPath": "images/tabBar/read.png",
         "selectedIconPath": "images/tabBar/read_select.png"
       },
       {
         "pagePath": "pages/books/books",
-        "text": "图书馆",
+        "text": "推荐",
         "iconPath": "images/tabBar/books.png",
         "selectedIconPath": "images/tabBar/books_select.png"
       },
