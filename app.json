@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/logs/logs",
     "pages/Test/Test",
-    "pages/bookdetail/bookdetail"
+    "pages/bookdetail/bookdetail",
+    "pages/readContent/readContent"
   ],
   "window": {
     "backgroundTextStyle": "light",
