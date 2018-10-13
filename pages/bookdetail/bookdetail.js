@@ -8,8 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    novelImag:'',
-    novelId:0,
+    novel:{}, //小说
+    novelIntro:'', //简介
+    novelImag:'', //封面图
+    novelId:0, //id
     list: [],
 
     open: false,
@@ -25,9 +27,15 @@ Page({
     console.log('player onLoad');
     let that = this;
     let data = app.globalData.selectBook;
+    console.log(data.novel_abstract)
     that.setData({
+      novel:data,
       novelImag: data.novel_cover,
       novelId: data.novel_id,
+      novelIntro: data.novel_abstract,
+    });
+    wx.setNavigationBarTitle({
+      title: data.novel_name
     });
     
     this.loadChapters(data.novel_id)
@@ -115,6 +123,20 @@ Page({
     wx.navigateTo({
       url: '../readContent/readContent?novelId=' + novelId + '&chapterNo=' + chapterNo
     });
+  },
+
+  //点击最新阅读章节
+  bindCurrentItemTap: function (event) {
+    var novelId = this.novel.novel_id; // 当前id
+    var chapterNo = this.novel.novel_latest_chapter_num; //
+    wx.navigateTo({
+      url: '../readContent/readContent?novelId=' + novelId + '&chapterNo=' + chapterNo
+    });
+  },
+
+  //加入书架
+  addCar: function (event) {
+
   }
 
 })

@@ -13,11 +13,24 @@
           </view>
         </scroll-view>
     </view>
+
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
-        <!-- <image bindtap="tap_ch" src="../../images/btn.png"></image> -->
+      <view class='detail-info'>
         <image class="big-img" src="{{novelImag}}"></image>
-         <!-- <view class="content">
-          
-        </view>  -->
+        <view class="module">简介</view>
+        <text class="intro">{{novelIntro}}</text>
+        <view class='catalogue'>
+          <button class='button-catalogue_nav' bindtap='tap_ch'>目录</button>
+          <button class="button-catalogue" bindtap='bindCurrentItemTap'>{{novel.novel_latest_chapter_name}}</button>
+          <image class="catalogue-rightIcon" mode='aspectFit' src="../../images/rarrow.png"/>
+        </view>
+      </view>
+
+      <view class="detail-nav">
+        <image class="homeIcon" mode='aspectFit' bindtap="toCar" src="../../images/home.png"/>
+        <view class="line_nav"></view>
+        <button class="button-green" bindtap="addCar" formType="submit">加入书架</button>
+        <button class="button-red" bindtap="bindCurrentItemTap" formType="submit">立即阅读</button>
+      </view>
     </view>
 </view>
