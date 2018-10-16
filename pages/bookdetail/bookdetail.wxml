@@ -30,7 +30,7 @@
         <image class="homeIcon" mode='aspectFit' bindtap="toCar" src="../../images/home.png"/>
         <view class="line_nav"></view>
         <button class="button-green" bindtap="addCar" formType="submit">加入书架</button>
-        <button class="button-red" bindtap="bindCurrentItemTap" formType="submit">立即阅读</button>
+        <button class="button-red" bindtap="readFirst" formType="submit">立即阅读</button>
       </view>
     </view>
 </view>

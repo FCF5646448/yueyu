@@ -98,8 +98,9 @@ Page({
 
     }
     this.data.mark = this.data.newmark;
-
+  
   },
+
   tap_end: function (e) {
     // touchend事件
     this.data.mark = 0;
@@ -127,8 +128,9 @@ Page({
 
   //点击最新阅读章节
   bindCurrentItemTap: function (event) {
-    var novelId = this.novel.novel_id; // 当前id
-    var chapterNo = this.novel.novel_latest_chapter_num; //
+    let that = this;
+    var novelId = that.data.novel.novel_id; // 当前id
+    var chapterNo = that.data.novel.novel_latest_chapter_num; //
     wx.navigateTo({
       url: '../readContent/readContent?novelId=' + novelId + '&chapterNo=' + chapterNo
     });
@@ -136,7 +138,7 @@ Page({
 
   //加入书架
   addCar: function (event) {
-
+    //
   }
 
 })
