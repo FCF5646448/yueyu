@@ -6,8 +6,10 @@
     "pages/logs/logs",
     "pages/Test/Test",
     "pages/bookdetail/bookdetail",
-    "pages/readContent/readContent"
+    "pages/readContent/readContent",
+    "pages/searchList/searchList"
   ],
+
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -18,7 +20,7 @@
     "list": [
       {
         "pagePath": "pages/read/read",
-        "text": "书架",
+        "text": "精选",
         "iconPath": "images/tabBar/read.png",
         "selectedIconPath": "images/tabBar/read_select.png"
       },

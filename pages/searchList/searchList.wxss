@@ -1,0 +1,16 @@
+/* pages/searchList/searchList.wxss */
+
+.searchView {
+  height: 30px;
+  width: 100%;
+  background-color: #ECECEC;
+}
+
+.searchBtn {
+  background-color: #ECECEC; 
+  font-size: .75rem;
+  color: #828a92;
+  width: 100%;
+  height: 100%;
+}
+

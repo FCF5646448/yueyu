@@ -1,0 +1,5 @@
+<!--pages/searchList/searchList.wxml-->
+<view class='searchBlock'>
+  <button class='searchBtn' style='height=60px width=100%' bindtap="touchSraech">搜索</button>
+</view>
+

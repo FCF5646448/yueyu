@@ -5,6 +5,10 @@
   <!-- <loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...
   </loading> -->
+  <view class='userAbout'>
+    
+  </view>
+
   <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
     <image class="item-img" src="{{item.novel_cover}}"></image>
     <view class="detail">

@@ -1,53 +1,5 @@
 const app = getApp()
 
-// Page({
-//     data:{
-//       proList:[
-//         {
-//           selected:true,
-//           id:0,
-//           proUrl:"http://img1.3lian.com/2015/w7/85/d/101.jpg",
-//           proTitle:"test",
-//           proDec:"test1",
-//           proPrice:0.01
-//         },
-//         {
-//           selected: false,
-//           id: 1,
-//           proUrl: "http://img1.3lian.com/2015/w7/85/d/101.jpg",
-//           proTitle: "test",
-//           proDec: "test1",
-//           proPrice: 0.01
-//         },
-//         {
-//           selected: false,
-//           id: 2,
-//           proUrl: "http://img1.3lian.com/2015/w7/85/d/101.jpg",
-//           proTitle: "test",
-//           proDec: "test1",
-//           proPrice: 0.01
-//         }
-//       ]
-//     },
-//     getSelectItem: function (e) {
-//       var that = this;
-//       var itemWidth = e.detail.scrollWidth / that.data.proList.length;//每个商品的宽度
-//       var scrollLeft = e.detail.scrollLeft;//滚动宽度
-//       var curIndex = Math.round(scrollLeft / itemWidth);//通过Math.round方法对滚动大于一半的位置进行进位
-//       for (var i = 0, len = that.data.proList.length; i < len; ++i) {
-//         that.data.proList[i].selected = false;
-//       }
-//       that.data.proList[curIndex].selected = true;
-//       that.setData({
-//         proList: that.data.proList,
-//         giftNo: this.data.proList[curIndex].id
-//       });
-//     },
-//     selectProItem: function(){
-      
-//     }
-// })
-
 //获取应用实例
 // var app = getApp()
 Page({
@@ -114,12 +66,7 @@ Page({
     var that = this;
     this.setData({
       hidden: false
-    })
-    // var id = e.detail.id;
-    // if (id == null) {
-    //   id = 1 //默认为1 玄幻
-    // }
-    // var  + 1;   
+    })   
     wx.request({
       url: 'http://132.232.54.132:8081/api/v1/novels/home?type_id=' + id,
       header: {
@@ -163,7 +110,7 @@ Page({
   },
 
 
-  //点击事件
+  //点击小说事件
   bindItemTap: function (event) {
     var data = event.currentTarget.dataset.data; // 当前id
     console.log(data);
@@ -172,5 +119,13 @@ Page({
     wx.navigateTo({
       url: '../bookdetail/bookdetail'
     });
+  },
+
+  //点击搜索
+  touchSraech : function (event) {
+    wx.navigateTo({
+      url: '../searchList/searchList'
+    })
   }
+
 })
