@@ -1,5 +1,52 @@
 .userAbout {
   height: 4rem;
+  padding: 1rem 10px;
+  display: flex;
+  border-bottom: 5px solid #e6e8eb;
+  /* background: gray; */
+}
+.userAbout-head {
+  flex: 1;
+  display: block;
+  border: 1px solid #e6e8eb;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userAbout-detail {
+  height: 4rem;
+  line-height: 1.25em;
+  flex: 2;
+  padding: 0 10px;
+  position: relative;
+}
+.userAbout-name {
+  font-size: .75rem;
+  overflow: hidden;
+  height: 1.5rem;
+  display: block;
+}
+.userAbout-vip {
+  font-size: .75rem;
+  overflow: hidden;
+  height: 1.5rem;
+  display: block;
+}
+.userAbout-tips {
+  font-size: .65rem;
+  position: absolute;
+  bottom: 0;
+  color: #828a92;
+  display: flex;
+}
+.userAbout-info {
+  word-break: break-all;
+  float: left;
+  flex: 3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1rem;
 }
 
 .scroll-view-item {

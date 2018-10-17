@@ -5,12 +5,16 @@ Page({
   data: {
     list: [],
     hidden: true,
-    audioData: null
+    audioData: null,
+    appuser:null,
   },
   loading: false,
 
   onLoad: function () {
     this.loadData()
+    this.setData({
+      appuser: app.globalData.userInfo
+    })
   },
 
   loadData: function () {
@@ -19,14 +23,15 @@ Page({
       hidden: false
     })
     wx.request({
-      url: 'http://132.232.54.132:8081/api/v1/novels/sources',
+      url: app.globalData.serverHost + '/api/v1/novels/records?open_id=32342345',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
-          list: res.data.info,
+          list: res.data.info.Record,
+          audioData:res.data.info.User,
           hidden: true
         });
       }

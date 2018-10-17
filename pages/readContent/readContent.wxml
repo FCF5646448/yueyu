@@ -1,6 +1,6 @@
 <!--pages/readContent/readContent.wxml-->
-<view>
-  <text class="content">{{info.chapter_content}}</text>
+<view class='content'>
+  <text class="detail">{{info.chapter_content}}</text>
   <!-- <scroll-view scroll-y style="height: 100%;wifth:100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
     <text class="content">{{info.chapter_content}}</text>
   </scroll-view> -->

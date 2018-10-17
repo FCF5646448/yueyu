@@ -12,7 +12,26 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          console.log(res)
+          wx.showToast({
+            title: '登录成功',
+            icon: 'none'
+          })
+        } else {
+          // 否则弹窗显示，showToast需要封装
+          wx.showToast({
+            title: '登录失败',
+            icon: 'none'
+          })
+        }
+      },
+      fail() {
+        wx.showToast({
+          title: '登录失败',
+          icon: 'none'
+        })
       }
     })
     // 获取用户信息
@@ -22,6 +41,8 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              console.log("用户信息： ")
+              console.log(res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
@@ -30,6 +51,9 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+            },
+            fail(){
+              console.log("获取用户信息失败 ")
             }
           })
         }

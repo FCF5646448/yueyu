@@ -6,7 +6,14 @@
     加载中...
   </loading> -->
   <view class='userAbout'>
-    
+    <image class="userAbout-head" src="{{appuser.avatarUrl}}" mode="cover"></image>
+    <view class="userAbout-detail">
+      <text class="userAbout-name">{{appuser.nickName}}</text>
+      <text class="userAbout-vip">会员</text>
+      <view class="userAbout-tips">
+          <text class="userAbout-info">{{audioData.vip_end}}</text>
+      </view>
+    </view>
   </view>
 
   <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
@@ -14,7 +21,7 @@
     <view class="detail">
       <text class="item-name">{{item.novel_name}}</text>
       <view class="tips">
-          <text class="item-info">{{item.novel_abstract}}</text>
+          <text class="item-info">{{item.last_chapter_name}}</text>
       </view>
     </view>
   </view>

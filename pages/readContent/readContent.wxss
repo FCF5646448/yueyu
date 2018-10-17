@@ -1,6 +1,5 @@
 /* pages/readContent/readContent.wxss */
-.content {
-  padding: 10px,10px,10px,10px;
-  font-size: .75rem;
+.detail {
+  font-size: .95rem;
   color: #828a92;
 }

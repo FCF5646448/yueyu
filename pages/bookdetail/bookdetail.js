@@ -65,22 +65,25 @@ Page({
 
   tap_ch: function (e) {
     if (this.data.open) {
+      console.log("close")
       this.setData({
-        open: false
+        open: false,
       });
     } else {
+      console.log("open")
       this.setData({
-        open: true
+        open: true,
       });
     }
   },
   tap_start: function (e) {
+    console.log("tap_start")
     // touchstart事件
     this.data.mark = this.data.newmark = e.touches[0].pageX;
   },
   tap_drag: function (e) {
     // touchmove事件
-
+    console.log("tap_start")
     /*
      * 手指从左向右移动
      * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
@@ -106,10 +109,12 @@ Page({
     this.data.mark = 0;
     this.data.newmark = 0;
     if (this.istoright) {
+      console.log("open1")
       this.setData({
         open: true
       });
     } else {
+      console.log("close1")
       this.setData({
         open: false
       });
