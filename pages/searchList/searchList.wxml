@@ -1,5 +1,17 @@
 <!--pages/searchList/searchList.wxml-->
-<view class='searchBlock'>
-  <button class='searchBtn' style='height=60px width=100%' bindtap="touchSraech">搜索</button>
+<view class='bgview'>
+  <view class="searchView" style='width: 100%' >
+    <input class='searchInput' placeholder="小说 or 作者" placeholder-class="placeholdercenter" focus="{{focus}}" confirm-type='search' confirm-hold='true' bindinput="bindKeyInput" bindconfirm='searchTap' />
+  </view>
+
+  <view class="scroll-view-item" wx:for="{{info}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
+    <image class="item-img" src="{{item.novel_cover}}"></image>
+    <view class="detail">
+      <text class="item-name">{{item.novel_name}}</text>
+      <view class="tips">
+          <text class="item-info">{{item.novel_abstract}}</text>
+      </view>
+    </view>
+  </view>
 </view>
 

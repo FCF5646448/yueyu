@@ -37,6 +37,7 @@ App({
     })
   },
   globalData: {
+    serverHost: 'https://lanxiyuedu.com', //整个项目域名 //http://132.232.54.132:8081
     userInfo: null,
     selectBook:null
   }

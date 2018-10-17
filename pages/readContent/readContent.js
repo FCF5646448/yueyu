@@ -26,7 +26,7 @@ Page({
 
   loadData: function (novelId, chapterNo) {
     var that = this;
-    var url = 'http://132.232.54.132:8081/api/v1/novels/special/chapter?novel_id=' + novelId + '&chapter_num=' + chapterNo;
+    var url = app.globalData.serverHost + '/api/v1/novels/special/chapter?novel_id=' + novelId + '&chapter_num=' + chapterNo;
     wx.request({
       url: url,
       header: {

@@ -48,7 +48,7 @@ Page({
       hidden: false
     })
     wx.request({
-      url: 'http://132.232.54.132:8081/api/v1/novels/types',
+      url: app.globalData.serverHost + '/api/v1/novels/types',
       header: {
         'content-type': 'application/json'
       },
@@ -68,7 +68,7 @@ Page({
       hidden: false
     })   
     wx.request({
-      url: 'http://132.232.54.132:8081/api/v1/novels/home?type_id=' + id,
+      url: app.globalData.serverHost + '/api/v1/novels/home?type_id=' + id,
       header: {
         'content-type': 'application/json'
       },

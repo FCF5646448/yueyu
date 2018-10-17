@@ -18,7 +18,4 @@
       </view>
     </view>
   </view>
-  <!-- <view>{{audioData}}</view>
-  <import src ="../common/playerFoot.wxml"/>
-  <template is="playerFoot"/> -->
 </view>
