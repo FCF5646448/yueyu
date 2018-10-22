@@ -12,6 +12,7 @@ Page({
     novelIntro:'', //简介
     novelImag:'', //封面图
     novelId:0, //id
+    toView: '#', //滚动的id
     list: [],
 
     open: false,
@@ -56,7 +57,8 @@ Page({
         console.log(res.data)
         that.setData({
           list: res.data.info,
-          hidden: true
+          hidden: true,
+          toView: '第九百三十八章 太虚尸行者',//that.data.novel.novel_latest_chapter_name,
         });
       }
     })
@@ -145,5 +147,5 @@ Page({
   addCar: function (event) {
     //
   }
-
+  
 })

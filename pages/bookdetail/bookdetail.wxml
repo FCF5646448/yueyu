@@ -7,8 +7,8 @@
 
 <view class="page">
     <view class="page-bottom">
-        <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-          <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
+        <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}">
+          <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.chapter_name}}" bindtap='bindItemTap' data-data='{{item}}'>
             <text class="item-name">{{item.chapter_name}}</text>
           </view>
         </scroll-view>
@@ -20,7 +20,8 @@
         <view class="module">简介</view>
         <text class="intro">{{novelIntro}}</text>
         <view class='catalogue'>
-          <button class='button-catalogue_nav' catchtap='tap_ch'>目录</button>
+           <button class='button-catalogue_nav' catchtap='tap_ch'>目录</button> 
+          <!-- <text class='text-catalogue_nav' catchtap='tap_ch'>目录</text> -->
           <button class="button-catalogue" bindtap='bindCurrentItemTap'>{{novel.novel_latest_chapter_name}}</button>
           <image class="catalogue-rightIcon" mode='aspectFit' src="../../images/rarrow.png"/>
         </view>

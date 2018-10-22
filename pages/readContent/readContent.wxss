@@ -1,5 +1,38 @@
 /* pages/readContent/readContent.wxss */
-.detail {
-  font-size: .95rem;
+.readcontentxxxx {
+    padding: 0px 10px 10px 10px;  
+}
+
+.detailxxxx {
+  /* padding-left: 5px;
+  padding-right: 1px; */
+  font-size: .85rem;
   color: #828a92;
+}
+
+.catalogue {
+  border-top: 1px solid #e6e8eb;
+  border-bottom: 1px solid #e6e8eb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0px 0px 0px;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100rpx;
+}
+
+.button-last{
+  font-size: 1rem;
+  color: black;
+  width: 100px; 
+  height: 100%;
+}
+
+.button-next {
+  font-size: 1rem;
+  color: black;
+  width: 100px; 
+  height: 100%;
 }

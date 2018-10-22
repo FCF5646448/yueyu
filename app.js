@@ -15,6 +15,7 @@ App({
         if (res.code) {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           console.log(res)
+          this.getOpenId(res.code)
           wx.showToast({
             title: '登录成功',
             icon: 'none'
@@ -60,8 +61,25 @@ App({
       }
     })
   },
+
+  getOpenId : function(code){
+    wx.request({
+      url: 'https://lanxiyuedu.com/api/v1/novels/openid?loginCode=' + code,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          userOpenInfo: res.data.info,
+        });
+      }
+    })
+  },
+
   globalData: {
     serverHost: 'https://lanxiyuedu.com', //整个项目域名 //http://132.232.54.132:8081
+    userOpenInfo:null,
     userInfo: null,
     selectBook:null
   }
