@@ -53,7 +53,6 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
         that.setData({
           categoryList: res.data.info,
           hidden: true
@@ -73,7 +72,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        console.log("request:" + res.data);
         that.setData({
           categoryDetailInfo: res.data.info,
           selectedId: id,
@@ -89,15 +88,13 @@ Page({
      * 滑动切换tab
      */
   bindChange: function (e) {
-    // console.log(e.currentTarget.dataset.id)
     var that = this;
     var index = e.detail.current;
     var currentType_id = that.data.categoryList[index].type_id;
     
     var exist = false;
-    var tempDetail = null;
+    var tempDetail = {};
     for (var i = 0; i < that.data.categoryDetailInfoDicList.length;i++){
-      console.log("zzzz");
       var tempDic = that.data.categoryDetailInfoDicList[i];
       if (tempDic[currentType_id] != undefined || tempDic[currentType_id] != null){
         exist = true;
@@ -106,16 +103,12 @@ Page({
       }
     }
     if (!exist) {
-      console.log("yyyyyy");
       this.loadDetailData(currentType_id)
     }else{
-      console.log("xxxxxx");
-      console.log(tempDetail);
       that.setData({
-        categoryDetailInfo: tempDetail,
+        categoryDetailInfo: tempDetail[currentType_id],
         selectedId: currentType_id,
       });
-      console.log(that.data.categoryDetailInfo);
     }
     that.setData({
       currentTab: e.detail.current,
@@ -126,7 +119,6 @@ Page({
    */
   swithNav: function (e) {
     var that = this;
-    console.log(e)
     that.setData({
       currentTab: e.target.dataset.current
     });
@@ -137,7 +129,6 @@ Page({
   //点击小说事件
   bindItemTap: function (event) {
     var data = event.currentTarget.dataset.data; // 当前id
-    console.log(data);
     // 设置到全局变量中去，让下个页面可以访问
     app.globalData.selectBook = data;
     wx.navigateTo({

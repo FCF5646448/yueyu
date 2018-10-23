@@ -24,7 +24,7 @@
 <swiper class="swiper-box" current="{{currentTab}}" duration="300" style="height:800px" bindchange="bindChange">  
   <swiper-item wx:for="{{categoryList}}" wx:key="item.index">  
     <view wx:if="{{item.type_id == selectedId}}"> 
-     <text>{{item.type_id}}</text> 
+     <!-- <text>{{item.type_id}}</text>  -->
     <view wx:if="{{categoryDetailInfo.best_selling.length > 0}}" class="weui-grids">  
       <view class="module"> 畅销小说</view> 
       <view class="weui-grid" wx:for="{{categoryDetailInfo.best_selling}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
