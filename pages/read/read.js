@@ -5,18 +5,18 @@ const app = getApp()
 Page({
   data: {
     /**
-        * 页面配置
+     * 页面配置
     */
     winWidth: 0,
     winHeight: 0,
-    // tab切换
+  // tab切换
     currentTab: 0,
-
-    //
+    
     selectedId:0,
-  
+
     categoryList:[],
     categoryDetailInfo:{},
+    categoryDetailInfoDicList:[],
     hidden: true,
   },
   loading: false,
@@ -24,7 +24,7 @@ Page({
 
   onLoad: function () {
     var that = this;
-    /**
+    /** 
      * 获取系统信息
      */
     wx.getSystemInfo({
@@ -36,7 +36,7 @@ Page({
         });
       }
     });
-
+    
     this.loadCategoryData()
     this.loadDetailData(1)
   },
@@ -66,7 +66,7 @@ Page({
     var that = this;
     this.setData({
       hidden: false
-    })   
+    })
     wx.request({
       url: app.globalData.serverHost + '/api/v1/novels/home?type_id=' + id,
       header: {
@@ -77,8 +77,11 @@ Page({
         that.setData({
           categoryDetailInfo: res.data.info,
           selectedId: id,
-          hidden: true
+          hidden: true,
         });
+        var tempDic = {}
+        tempDic[id] = res.data.info;
+        that.data.categoryDetailInfoDicList.push(tempDic);
       }
     })
   },
@@ -89,13 +92,34 @@ Page({
     // console.log(e.currentTarget.dataset.id)
     var that = this;
     var index = e.detail.current;
-    console.log(that.data.categoryList[index])
     var currentType_id = that.data.categoryList[index].type_id;
-    that.setData({ 
+    
+    var exist = false;
+    var tempDetail = null;
+    for (var i = 0; i < that.data.categoryDetailInfoDicList.length;i++){
+      console.log("zzzz");
+      var tempDic = that.data.categoryDetailInfoDicList[i];
+      if (tempDic[currentType_id] != undefined || tempDic[currentType_id] != null){
+        exist = true;
+        tempDetail = tempDic;
+        break;
+      }
+    }
+    if (!exist) {
+      console.log("yyyyyy");
+      this.loadDetailData(currentType_id)
+    }else{
+      console.log("xxxxxx");
+      console.log(tempDetail);
+      that.setData({
+        categoryDetailInfo: tempDetail,
+        selectedId: currentType_id,
+      });
+      console.log(that.data.categoryDetailInfo);
+    }
+    that.setData({
       currentTab: e.detail.current,
     });
-    this.loadDetailData(currentType_id)
-
   },
   /**
    * 点击tab切换

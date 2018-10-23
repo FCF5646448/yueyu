@@ -14,7 +14,6 @@ Page({
     this.setData({
       appuser: app.globalData.userInfo
     })
-
     this.loadData()
   },
 

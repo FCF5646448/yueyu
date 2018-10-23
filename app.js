@@ -60,6 +60,7 @@ App({
         }
       }
     })
+
   },
 
   getOpenId : function(code){
@@ -68,11 +69,9 @@ App({
       header: {
         'content-type': 'application/json'
       },
-      success: function (res) {
+      success: res => {
         console.log(res.data)
-        that.setData({
-          userOpenInfo: res.data.info,
-        });
+        this.globalData.userOpenInfo = res.data.info
       }
     })
   },

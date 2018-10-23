@@ -21,28 +21,10 @@
     <view wx:for="{{categoryList}}" wx:key="item.index" wx:for-index="index" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swithNav" >{{item.type_name}}</view>  
 </view>
 
-<!-- <view class="swiper-tab">
-    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">哈哈</view>
-    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">呵呵</view>
-    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">嘿嘿</view>
-</view> -->
- 
-<!-- <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
-    <swiper-item>
-      <view>我是哈哈</view>
-    </swiper-item>
-    <swiper-item>
-      <view>我是呵呵</view>
-    </swiper-item>
-    <swiper-item>
-      <view>我是嘿嘿</view>
-    </swiper-item>
-</swiper>  -->
-
 <swiper class="swiper-box" current="{{currentTab}}" duration="300" style="height:800px" bindchange="bindChange">  
   <swiper-item wx:for="{{categoryList}}" wx:key="item.index">  
     <view wx:if="{{item.type_id == selectedId}}"> 
-    <!-- <text>{{item.type_id}}</text> -->
+     <text>{{item.type_id}}</text> 
     <view wx:if="{{categoryDetailInfo.best_selling.length > 0}}" class="weui-grids">  
       <view class="module"> 畅销小说</view> 
       <view class="weui-grid" wx:for="{{categoryDetailInfo.best_selling}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
