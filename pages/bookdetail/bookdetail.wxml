@@ -1,10 +1,3 @@
-<!--pages/bookdetail/bookdetail.wxml-->
-<!-- <view>          
-  <view class="content">
-    <image class="big-img" src="{{novelImag}}"></image>
-  </view> 
-</view> -->
-
 <view class="page">
     <view class="page-bottom">
         <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
@@ -16,20 +9,22 @@
 
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
       <view class='detail-info'>
-        <image class="big-img" src="{{novelImag}}"></image>
-        <view class="module">简介</view>
-        <text class="intro">{{novelIntro}}</text>
+        <image class="big-img" src="{{novel.novel_cover}}"></image>
+        <view class='detail-intro'>
+          <view class="module">简介</view>
+          <text class="intro">{{novel.novel_abstract}}</text>
+        </view>
         <view class='catalogue'>
-           <button class='button-catalogue_nav' catchtap='tap_ch'>目录</button> 
+          <button class='button-catalogue_nav' catchtap='tap_ch'>目录</button> 
           <button class="button-catalogue" bindtap='bindCurrentItemTap'>{{novel.novel_latest_chapter_name}}</button>
           <image class="catalogue-rightIcon" mode='aspectFit' src="../../images/rarrow.png"/>
         </view>
       </view>
 
       <view class="detail-nav">
-        <image class="homeIcon" mode='aspectFit' bindtap="toCar" src="../../images/home.png"/>
+        <image class="homeIcon" mode='aspectFit' bindtap="gohome" src="../../images/home.png"/>
         <view class="line_nav"></view>
-        <button class="button-green" bindtap="addCar" formType="submit">加入书架</button>
+        <!-- <button class="button-green" bindtap="addCar" formType="submit">加入书架</button> -->
         <button class="button-red" bindtap="readFirst" formType="submit">立即阅读</button>
       </view>
     </view>

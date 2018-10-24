@@ -22,13 +22,12 @@ Page({
   loading: false,
 
 
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
     /** 
      * 获取系统信息
      */
     wx.getSystemInfo({
-
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
@@ -39,6 +38,15 @@ Page({
     
     this.loadCategoryData()
     this.loadDetailData(1)
+
+    console.log(options)
+    
+    if (options.share == 1) {
+
+      wx.navigateTo({
+        url: '../bookdetail/bookdetail?novelid=' + options.novelid,
+      });
+    }
   },
 
 //获取分类信息
@@ -130,7 +138,7 @@ Page({
   bindItemTap: function (event) {
     var data = event.currentTarget.dataset.data; // 当前id
     // 设置到全局变量中去，让下个页面可以访问
-    app.globalData.selectBook = data;
+    // app.globalData.selectBook = data;
     console.log(data);
     wx.navigateTo({
       url: '../bookdetail/bookdetail?novelid=' + data.novel_id,

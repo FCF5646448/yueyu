@@ -83,17 +83,18 @@
   -webkit-line-clamp: 20;
 } */
 
+.detail-intro{
+  padding: 10px 10px 10px 10px;  
+}
+
 .module {
   font-size: 1rem;
-  padding: 10px 10px 0px 10px;
 }
 
 .intro {
   width: 100%;
   font-size: .75rem;
   color: #828a92;
-  margin: 10px;
-  padding: 10px;
 }
 
 .catalogue {

@@ -8,11 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isshare:0, //1表示是分享
     novel:{}, //小说
-    novelIntro:'', //简介
-    novelImag:'', //封面图
     novelId:0, //id
-    toView: '#', //滚动的id
     list: [],
 
     open: false,
@@ -26,21 +24,48 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    let data = app.globalData.selectBook;
+    // let data = app.globalData.selectBook;
     console.log("xxxxxx");
     that.setData({
-      novel:data,
-      novelImag: data.novel_cover,
-      novelId: data.novel_id,
-      novelIntro: data.novel_abstract,
+      novelId: options.novelid,
     });
-    wx.setNavigationBarTitle({
-      title: data.novel_name
-    });
-    
+
+    if (options.share == 1) {
+      console.log('是分享进入');
+      this.setData({
+        isshare: options.share,
+      })
+    }
+
+    this.loadNovelDetail(options.novelid)
     this.loadChapters(options.novelid)
   },
 
+  loadNovelDetail:function(id) {
+    var that = this;
+    this.setData({
+      hidden: false
+    })
+    wx.request({
+      url: app.globalData.serverHost + '/api/v1/novels/summary?novel_id=' + id,
+
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          novel: res.data.info,
+          hidden: true,
+        });
+        wx.setNavigationBarTitle({
+          title: res.data.info.novel_name
+        });
+      }
+    })
+  },
+
+  //获取所有章节
   loadChapters: function (id) {
     var that = this;
     this.setData({
@@ -57,7 +82,6 @@ Page({
         that.setData({
           list: res.data.info,
           hidden: true,
-          toView: '第九百三十八章 太虚尸行者',//that.data.novel.novel_latest_chapter_name,
         });
       }
     })
@@ -143,8 +167,20 @@ Page({
   },
 
   //加入书架
-  addCar: function (event) {
+  gohome: function (event) {
     //
+
+    if (this.data.isshare == 1) {
+      console.log("由分享回到首页")
+      wx.reLaunch({
+        url: 'pages/read/read'
+      })
+    }else{
+      console.log("返回首页")
+      wx.navigateBack({
+      })
+    }
+    
   },
 
   //分享
@@ -153,10 +189,9 @@ Page({
     return {
       title: that.data.novel.novel_name,
       imageUrl: that.data.novel.novel_cover,
-      path: 'pages/bookdetail/bookdetail?novelid=' + that.data.novelId,
+      path: 'pages/read/read?novelid=' + that.data.novelId + '&share=1', //pages/bookdetail/bookdetail? pages/read/read?
       success: function (res) {
         console.log("转发成功")
-        that.shareClick();
       },
       fail: function (res) {
         console.log("转发失败")
