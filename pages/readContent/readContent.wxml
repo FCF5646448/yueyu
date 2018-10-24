@@ -3,11 +3,9 @@
   <view class='readcontentxxxx'>
     <text class="detailxxxx">{{info.chapter_content}}</text>
   </view>
-  <!-- <scroll-view scroll-y style="height: 100%;wifth:100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-    <text class="content">{{info.chapter_content}}</text>
-  </scroll-view> -->
-  <view class='catalogue'>
-    <button class='button-last' catchtap='tap_ch'>上一章</button> 
-    <button class="button-next" bindtap='bindCurrentItemTap'>下一章</button>
+  
+  <view class='catalogue' wx:if="{{info.chapter_content.length > 0}}" >
+    <button class='button-last' catchtap='lastchapter'>上一章</button> 
+    <button class="button-next" catchtap='nextchapter'>下一章</button>
   </view>
 </view>

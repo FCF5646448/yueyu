@@ -11,8 +11,8 @@
 }
 
 .catalogue {
-  border-top: 1px solid #e6e8eb;
-  border-bottom: 1px solid #e6e8eb;
+  /* border-top: 1px solid #e6e8eb; */
+  /* border-bottom: 1px solid #e6e8eb; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,6 +25,7 @@
 
 .button-last{
   font-size: 1rem;
+  background-color: white;
   color: black;
   width: 100px; 
   height: 100%;
@@ -32,7 +33,16 @@
 
 .button-next {
   font-size: 1rem;
+  background-color: white;
   color: black;
   width: 100px; 
   height: 100%;
+}
+
+.button-last::after{
+  border: none;
+}
+
+.button-next::after {
+  border: none;
 }

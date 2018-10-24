@@ -28,7 +28,6 @@ Page({
     console.log('player onLoad');
     let that = this;
     let data = app.globalData.selectBook;
-    console.log(data.novel_abstract)
     that.setData({
       novel:data,
       novelImag: data.novel_cover,
