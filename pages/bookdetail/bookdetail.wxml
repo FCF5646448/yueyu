@@ -7,7 +7,7 @@
 
 <view class="page">
     <view class="page-bottom">
-        <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}">
+        <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
           <view class="scroll-view-item" wx:for="{{list}}" bindtap='bindItemTap' data-data='{{item}}'>
             <text class="item-name">{{item.chapter_name}}</text>
           </view>

@@ -7,25 +7,26 @@ Page({
     hidden: true,
     audioData: null,
     appuser:null,
+    openid:"",
   },
   loading: false,
 
   onLoad: function () {
     this.setData({
-      appuser: app.globalData.userInfo
+      appuser: app.globalData.userInfo,
+      openid: app.globalData.userOpenInfo.openid,
     })
     this.loadData()
+    wx.hideOptionMenu();
   },
 
   loadData: function () {
     var that = this;
     this.setData({
-      hidden: false
+      hidden: false,
     })
-    // console.log(app.globalData.userOpenInfo.info)
     wx.request({
-      // url: app.globalData.serverHost + '/api/v1/novels/records?open_id=' + app.globalData.userOpenInfo.info.openid,
-      url: 'https://lanxiyuedu.com/api/v1/novels/records?open_id=071sSOo026hVIZ0LiBq02Oz4p02sSOoV',
+      url: app.globalData.serverHost + '/api/v1/novels/records?open_id=' + that.data.openid,
       header: {
         'content-type': 'application/json'
       },

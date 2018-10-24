@@ -14,7 +14,7 @@
     </view>
   </view>
 
-  <view class="scroll-view-item" wx:for="{{list}}" data-id="{{item.novel_id}}" bindtap='bindItemTap' data-data='{{item}}'>
+  <view class="scroll-view-item" wx:for="{{list}}" bindtap='bindItemTap' data-data='{{item}}'>
     <image class="item-img" src="{{item.novel_cover}}"></image>
     <view class="detail">
       <text class="item-name">{{item.novel_name}}</text>

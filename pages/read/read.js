@@ -131,8 +131,9 @@ Page({
     var data = event.currentTarget.dataset.data; // 当前id
     // 设置到全局变量中去，让下个页面可以访问
     app.globalData.selectBook = data;
+    console.log(data);
     wx.navigateTo({
-      url: '../bookdetail/bookdetail'
+      url: '../bookdetail/bookdetail?novelid=' + data.novel_id,
     });
   },
 

@@ -25,9 +25,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('player onLoad');
     let that = this;
     let data = app.globalData.selectBook;
+    console.log("xxxxxx");
     that.setData({
       novel:data,
       novelImag: data.novel_cover,
@@ -38,7 +38,7 @@ Page({
       title: data.novel_name
     });
     
-    this.loadChapters(data.novel_id)
+    this.loadChapters(options.novelid)
   },
 
   loadChapters: function (id) {
@@ -145,6 +145,23 @@ Page({
   //加入书架
   addCar: function (event) {
     //
+  },
+
+  //分享
+  onShareAppMessage:function(res) {
+    var that = this;
+    return {
+      title: that.data.novel.novel_name,
+      imageUrl: that.data.novel.novel_cover,
+      path: 'pages/bookdetail/bookdetail?novelid=' + that.data.novelId,
+      success: function (res) {
+        console.log("转发成功")
+        that.shareClick();
+      },
+      fail: function (res) {
+        console.log("转发失败")
+      }
+    }
   }
-  
+
 })

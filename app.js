@@ -70,8 +70,9 @@ App({
         'content-type': 'application/json'
       },
       success: res => {
-        console.log(res.data)
-        this.globalData.userOpenInfo = res.data.info
+        console.log("ppppp");
+        this.globalData.userOpenInfo = res.data.info;
+        console.log(this.globalData.userOpenInfo);
       }
     })
   },

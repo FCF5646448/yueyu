@@ -28,7 +28,7 @@
     <view wx:if="{{categoryDetailInfo.best_selling.length > 0}}" class="weui-grids">  
       <view class="module"> 畅销小说</view> 
       <view class="weui-grid" wx:for="{{categoryDetailInfo.best_selling}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
-        <navigator url="{{item.novel_id}}">        
+        <navigator>        
           <view class="weui-grid__icon">          
             <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
           </view>        
@@ -41,7 +41,7 @@
     <view wx:if="{{categoryDetailInfo.free.length > 0}}" class="weui-grids"> 
       <view class="module"> 限免小说</view> 
       <view class="weui-grid" wx:for="{{categoryDetailInfo.free}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
-        <navigator url="{{item.novel_id}}">        
+        <navigator>        
           <view class="weui-grid__icon">          
             <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
           </view>        
@@ -54,7 +54,7 @@
     <view wx:if="{{categoryDetailInfo.free.vip > 0}}" class="weui-grids"> 
       <view class="module"> 付费小说</view>
       <view class="weui-grid" wx:for="{{categoryDetailInfo.vip}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
-        <navigator url="{{item.novel_id}}">        
+        <navigator>        
           <view class="weui-grid__icon">          
             <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
           </view>        

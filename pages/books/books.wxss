@@ -9,10 +9,10 @@
   flex: 1;
   display: block;
   border: 1px solid #e6e8eb;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  height: 70px;
+  width: 60px;
   border-radius: 50%;
+  position: relative;
 }
 .userAbout-detail {
   height: 4rem;
