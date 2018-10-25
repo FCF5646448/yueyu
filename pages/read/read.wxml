@@ -1,28 +1,27 @@
+<view class='page'>
+  <view class='searchView'>
+    <button class='searchBtn' style='width=90%' bindtap="touchSraech">小说 or 作者</button>
+  </view>
 
-<view class='searchView'>
-  <button class='searchBtn' style='height=60px width=100%' bindtap="touchSraech">小说 or 作者</button>
-</view>
 
+  <view class="swiper-tab">  
+      <view wx:for="{{categoryList}}" wx:key="item.index" wx:for-index="index" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swithNav" >{{item.type_name}}  </view>  
+  </view>
 
-<view class="swiper-tab">  
-    <view wx:for="{{categoryList}}" wx:key="item.index" wx:for-index="index" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swithNav" >{{item.type_name}}</view>  
-</view>
-
-<swiper class="swiper-box" current="{{currentTab}}" duration="300" style="height:800px" bindchange="bindChange">  
-  <swiper-item wx:for="{{categoryList}}" wx:key="item.index">  
-    <view wx:if="{{item.type_id == selectedId}}"> 
-     <!-- <text>{{item.type_id}}</text>  -->
-    <view wx:if="{{categoryDetailInfo.best_selling.length > 0}}" class="weui-grids">  
-      <view class="module"> 畅销小说</view> 
-      <view class="weui-grid" wx:for="{{categoryDetailInfo.best_selling}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
-        <navigator>        
-          <view class="weui-grid__icon">          
-            <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
-          </view>        
-          <text class="weui-grid__label">{{item.novel_name}}</text>      
-        </navigator>    
-      </view>
-    </view>
+  <swiper class="swiper-box" current="{{currentTab}}" duration="300" bindchange="bindChange">  
+    <swiper-item wx:for="{{categoryList}}" wx:key="item.index">  
+      <view wx:if="{{item.type_id == selectedId}}"> 
+        <view wx:if="{{categoryDetailInfo.best_selling.length > 0}}" class="weui-grids">  
+          <view class="module"> 畅销小说</view> 
+          <view class="weui-grid" wx:for="{{categoryDetailInfo.best_selling}}" wx:key="name" data-data="{{item}}" bindtap='bindItemTap'>      
+            <navigator>        
+              <view class="weui-grid__icon">          
+                <image src=" {{item.novel_cover}}" mode="scaleToFill" />  
+              </view>        
+              <text class="weui-grid__label">{{item.novel_name}}</text>      
+            </navigator>    
+          </view>
+        </view>
 
   
     <view wx:if="{{categoryDetailInfo.free.length > 0}}" class="weui-grids"> 
@@ -52,3 +51,4 @@
     </view>
   </swiper-item>
 </swiper>
+</view>
