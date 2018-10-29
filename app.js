@@ -5,36 +5,64 @@ App({
       enableDebug: true //调试模式
     })
     wx.clearStorage(); //测试清理本地缓存
-    this.wxlogin()
+    this.wxSetting()
   },
 
-  // wxSetting: function() {
+  wxSetting: function() {
     // 获取用户信息 每次进来都获取信息信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           console.log("用户信息： ")
-    //           this.globalData.wxUserInfo = res.userInfo
-    //           this.wxlogin()
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         },
-    //         fail() {
-    //           console.log("获取用户信息失败 ")
-    //         }
-    //       })
-    //     } 
-    //     else {
-    //       console.log("没有用户登录权限");
-    //     }
-    //   }
-    // })
-  // },
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              console.log("用户信息： ")
+              this.globalData.wxUserInfo = res.userInfo
+              this.wxlogin()
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            },
+            fail() {
+              console.log("获取用户信息失败 ")
+            }
+          })
+        } else {
+          console.log("没有用户登录权限");
+          wx.showModal({
+            title: '温馨提示',
+            content: '获取用户信息需要开启用户权限',
+            success:res => {
+              if (res.confirm) {
+                //去设置
+                wx.openSetting({
+                  success: res => {
+                    wx.getUserInfo({
+                      success: res => {
+                        console.log("用户信息： ")
+                        this.globalData.wxUserInfo = res.userInfo
+                        this.wxlogin()
+                        // 所以此处加入 callback 以防止这种情况
+                        if (this.userInfoReadyCallback) {
+                          this.userInfoReadyCallback(res)
+                        }
+                      },
+                      fail() {
+                        console.log("获取用户信息失败 ")
+                      }
+                    })
+                  }
+                })
+              }else{
+                //不设置
+              }
+            }
+          })
+        }
+      }
+    })
+  },
 
   wxlogin: function() {
     //查看登录信息
@@ -52,21 +80,6 @@ App({
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             console.log(res);
             this.getOpenId(res.code);
-
-            wx.getUserInfo({
-              success: res => {
-                console.log("用户信息： ")
-                this.globalData.wxUserInfo = res.userInfo
-                this.wxlogin()
-                // 所以此处加入 callback 以防止这种情况
-                if (this.userInfoReadyCallback) {
-                  this.userInfoReadyCallback(res)
-                }
-              },
-              fail() {
-                console.log("获取用户信息失败 ")
-              }
-            })
           }
         }
       })
@@ -100,7 +113,7 @@ App({
     console.log("loginServer");
     var open_id = this.globalData.OpenIdInfo["openid"];
     var name = 'xxx'//this.globalData.wxUserInfo["nickName"];
-    var HeadUrl = 'https://upload.jianshu.io/users/upload_avatars/1883670/48a532db-7164-4885-854d-3a05d174859d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240'//this.globalData.wxUserInfo["avatarUrl"];
+    var HeadUrl = 'xxx'//this.globalData.wxUserInfo["avatarUrl"];
     console.log(open_id);
     wx.request({
       url: 'https://lanxiyuedu.com/api/v1/novels/login',
@@ -110,7 +123,7 @@ App({
         'channel': 1,
         'HeadUrl': HeadUrl,
         'name' : name,
-        'open_id': open_id,
+        'openid': open_id,
       },
       header: {
         // 'content-type': 'application/json'
