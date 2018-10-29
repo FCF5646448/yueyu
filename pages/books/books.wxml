@@ -1,4 +1,7 @@
 
+<import src="../../pages/showAuthority/showAuthority.wxml" />
+<template is="toast" data="{{..._toast_}}"/>
+
 <view class='contain'>
   <!-- <loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...

@@ -12,6 +12,8 @@ Page({
   loading: false,
 
   onLoad: function () {
+    app.showLogin.show();
+
     this.setData({
       appuser: app.globalData.userInfo,
       openid: app.globalData.userOpenInfo.openid,

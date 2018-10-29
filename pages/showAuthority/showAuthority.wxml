@@ -1,2 +1,11 @@
 <!--pages/showAuthority/showAuthority.wxml-->
-<text>pages/showAuthority/showAuthority.wxml</text>
+<template name="toast">
+  <view class="toast-content-wrap" wx:if="{{isShowToast}}">
+    <view class="toast-content">
+      <button class='wxloginbtn'>微信登录</button>       
+    </view>
+  </view>
+</template>
+
+
+

@@ -1,5 +1,8 @@
 //app.js
+import { showLogin }from './pages/showAuthority/showAuthority';
+
 App({
+  showLogin,
   onLaunch: function () {
     wx.setEnableDebug({
       enableDebug: true //调试模式
@@ -30,35 +33,54 @@ App({
           })
         } else {
           console.log("没有用户登录权限");
-          wx.showModal({
-            title: '温馨提示',
-            content: '获取用户信息需要开启用户权限',
+          wx.authorize({
+            scope: 'scope.userInfo',
             success:res => {
-              if (res.confirm) {
-                //去设置
-                wx.openSetting({
-                  success: res => {
-                    wx.getUserInfo({
-                      success: res => {
-                        console.log("用户信息： ")
-                        this.globalData.wxUserInfo = res.userInfo
-                        this.wxlogin()
-                        // 所以此处加入 callback 以防止这种情况
-                        if (this.userInfoReadyCallback) {
-                          this.userInfoReadyCallback(res)
-                        }
-                      },
-                      fail() {
-                        console.log("获取用户信息失败 ")
-                      }
-                    })
+              wx.getUserInfo({
+                success: res => {
+                  console.log("用户信息： ")
+                  this.globalData.wxUserInfo = res.userInfo
+                  this.wxlogin()
+                  // 所以此处加入 callback 以防止这种情况
+                  if (this.userInfoReadyCallback) {
+                    this.userInfoReadyCallback(res)
                   }
-                })
-              }else{
-                //不设置
-              }
+                },
+                fail() {
+                  console.log("获取用户信息失败 ")
+                }
+              })
             }
           })
+          // wx.showModal({
+          //   title: '温馨提示',
+          //   content: '获取用户信息需要开启用户权限',
+          //   success:res => {
+          //     if (res.confirm) {
+          //       //去设置
+          //       wx.openSetting({
+          //         success: res => {
+          //           wx.getUserInfo({
+          //             success: res => {
+          //               console.log("用户信息： ")
+          //               this.globalData.wxUserInfo = res.userInfo
+          //               this.wxlogin()
+          //               // 所以此处加入 callback 以防止这种情况
+          //               if (this.userInfoReadyCallback) {
+          //                 this.userInfoReadyCallback(res)
+          //               }
+          //             },
+          //             fail() {
+          //               console.log("获取用户信息失败 ")
+          //             }
+          //           })
+          //         }
+          //       })
+          //     }else{
+          //       //不设置
+          //     }
+          //   }
+          // })
         }
       }
     })

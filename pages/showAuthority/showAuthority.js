@@ -1,23 +1,25 @@
 // pages/showAuthority/showAuthority.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
+let showLogin = {
+  show:function() {
+    var that = this;
+    this.setData({
+      '_toast_.isShow':true,
+    })
   }
-})
+}
+
+function showLogin(){
+  let pages = getCurrentPages();
+  let curPage = pages[pages.length - 1];
+  Object.assign(curPage, showLogin)
+  curPage.showLogin = this;
+  curPage.setData({
+    '_toast_.isShow': false,
+  })
+
+  return this;
+}
+
+module.exorts = {
+  showLogin
+}
