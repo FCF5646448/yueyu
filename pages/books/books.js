@@ -25,6 +25,8 @@ Page({
     this.setData({
       hidden: false,
     })
+    console.log("xxxxxxx");
+    console.log(that.data.openid);
     wx.request({
       url: app.globalData.serverHost + '/api/v1/novels/records?open_id=' + that.data.openid,
       header: {

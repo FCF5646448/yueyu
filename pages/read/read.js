@@ -39,8 +39,8 @@ Page({
     this.loadCategoryData()
     this.loadDetailData(1)
 
-    console.log(options)
-    
+    // console.log(options)
+
     if (options.share == 1) {
 
       wx.navigateTo({
@@ -150,6 +150,6 @@ Page({
     wx.navigateTo({
       url: '../searchList/searchList'
     })
-  }
+  },
 
 })

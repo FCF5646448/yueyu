@@ -16,7 +16,9 @@ Page({
     open: false,
     mark: 0,
     newmark: 0,
-    istoright: true
+    istoright: true,
+
+    toView:'',
   },
 
   /**
@@ -81,6 +83,7 @@ Page({
         console.log(res.data)
         that.setData({
           list: res.data.info,
+          toView: "第八百六十六章 不死之身",//res.data.info.novel_latest_chapter_name,
           hidden: true,
         });
       }
@@ -186,10 +189,11 @@ Page({
   //分享
   onShareAppMessage:function(res) {
     var that = this;
+    var openid = app.globalData.userOpenInfo.openid;
     return {
       title: that.data.novel.novel_name,
       imageUrl: that.data.novel.novel_cover,
-      path: 'pages/read/read?novelid=' + that.data.novelId + '&share=1', //pages/bookdetail/bookdetail? pages/read/read?
+      path: 'pages/read/read?novelid=' + that.data.novelId + '&share=1' + '&openid=' + openid, //pages/bookdetail/bookdetail? pages/read/read?
       success: function (res) {
         console.log("转发成功")
       },
