@@ -1,9 +1,11 @@
 //流程 外部接口调用wxlogin，成功后显示登录界面获取用户信息，然后去请求openid，之后拿着openid和用户信息登录自己服务
-var logincode = null
 
 let loginToast = {
   //登录微信
   wxlogin: function () {
+    this.setData({
+      '_toast_.isHide': false,
+    });
     //查看登录信息
     var login = wx.getStorageSync('login');
     if (login.length > 0 && login == 'success') {
@@ -19,9 +21,7 @@ let loginToast = {
           if (res.code) {
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             console.log(res);
-            this.setData({
-              'logincode': res.code,
-            });
+
             getApp().globalData.loginCode = res.code;
             this.show()
           }
@@ -43,7 +43,7 @@ let loginToast = {
 
   // toast显示的方法
   show: function () {
-    let self = this;
+    console.log("show");
     this.setData({
       '_toast_.isHide': true,
     });
@@ -124,6 +124,7 @@ let loginToast = {
 
 function LoginToast() {
   // 拿到当前页面对象
+  console.log("初始化loginview");
   let pages = getCurrentPages();
   let curPage = pages[pages.length - 1];
   this.__page = curPage;
@@ -135,8 +136,6 @@ function LoginToast() {
   // curPage.setData(_compData);
   curPage.setData({
     '_toast_.isHide': false,
-    '_toast_.canIUse': wx.canIUse('button.open-type.getUserInfo'),
-    'loginCode':null,
   })
   return this;
 }

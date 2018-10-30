@@ -25,7 +25,8 @@ Page({
 
   loadData: function (novelId, chapterNo) {
     var that = this;
-    var url = app.globalData.serverHost + '/api/v1/novels/special/chapter?novel_id=' + novelId + '&chapter_num=' + chapterNo;
+    var openid = app.globalData.OpenIdInfo.openid;
+    var url = app.globalData.serverHost + '/api/v1/novels/special/chapter?novel_id=' + novelId + '&chapter_num=' + chapterNo + '&open_id=' + openid;
     wx.request({
       url: url,
       header: {

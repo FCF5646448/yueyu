@@ -11,10 +11,7 @@ Page({
   },
   loading: false,
 
-  onLoad: function () {
-    // 调用应用实例的方法获取全局数据
-    let app = getApp();
-    // toast组件实例
+  onShow:function (){
     new app.LoginToast();
     this.wxlogin();
   },
@@ -25,7 +22,6 @@ Page({
       hidden: false,
       wxuser: app.globalData.wxUserInfo,
       openid: app.globalData.OpenIdInfo.openid,
-
     })
     console.log("loadData");
     console.log(that.data.openid);
@@ -39,16 +35,21 @@ Page({
         that.setData({
           list: res.data.info.Record,
           audioData:res.data.info.User,
-          hidden: true
+          hidden: true,
         });
       }
     })
   },
   //点击事件
   bindItemTap: function (event) {
-    var name = event.currentTarget.dataset.data.Album; // 当前id
+    var data = event.currentTarget.dataset.data; // 当前id
+    console.log(data);
     wx.navigateTo({
-      url: '../instructor/instructor?Album=' + name
+      url: '../bookdetail/bookdetail?novelid=' + data.novel_id,
     });
+    // var name = event.currentTarget.dataset.data.Album; // 当前id
+    // wx.navigateTo({
+    //   url: '../instructor/instructor?Album=' + name
+    // });
   }
 })

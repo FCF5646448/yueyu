@@ -1,4 +1,4 @@
- <import src="../../component/LoginToast/LoginToast.wxml"/>
+<import src="../../component/LoginToast/LoginToast.wxml"/>
 <template is="toast" data="{{ ..._toast_ }}"/> 
 
 <view class='contain'>
@@ -6,10 +6,22 @@
     加载中...
   </loading> -->
   <view class='userAbout'>
-    <image class="userAbout-head" src="{{wxuser.avatarUrl}}" mode="cover"></image>
+    <image class="userAbout-head" src="{{wxuser.avatarUrl}}"></image>
     <view class="userAbout-detail">
       <text class="userAbout-name">{{wxuser.nickName}}</text>
-      <text class="userAbout-vip">会员</text>
+      <view wx:if="{{audioData.status_vip == 1}}">
+        <text class="userAbout-vip">普通用户</text>
+      </view>
+      <view wx:if="{{audioData.status_vip == 2}}">
+       <text class="userAbout-vip">1天vip用户</text>
+      </view>
+      <view wx:if="{{audioData.status_vip == 3}}">
+        <text class="userAbout-vip">30天vip用户</text>
+      </view>
+      <view wx:if="{{audioData.status_vip == 4}}">
+        <text class="userAbout-vip">1年vip用户</text>
+    </view>
+      
       <view class="userAbout-tips">
           <text class="userAbout-info">{{audioData.vip_end}}</text>
       </view>

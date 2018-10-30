@@ -1,18 +1,22 @@
 .userAbout {
   height: 4rem;
-  padding: 1rem 10px;
-  display: flex;
+  /* padding: 1rem 10px; */
+  display: flex; 
+  border-top: 1px solid #e6e8eb;
   border-bottom: 5px solid #e6e8eb;
+  background-color: aliceblue;
   /* background: gray; */
 }
 .userAbout-head {
   flex: 1;
-  display: block;
-  border: 1px solid #e6e8eb;
-  height: 70px;
-  width: 60px;
-  border-radius: 50%;
-  position: relative;
+  /* display: block;  */
+  margin: 0px 10px; 
+  /* border: 1px solid #e6e8eb;  */
+    height: 100%;   
+   /* width: 20%;   */
+  border-radius: 10px; 
+    /* position:relative;   */
+  /* background-color: blue; */
 }
 .userAbout-detail {
   height: 4rem;
@@ -20,6 +24,7 @@
   flex: 2;
   padding: 0 10px;
   position: relative;
+  /* background-color: red; */
 }
 .userAbout-name {
   font-size: .75rem;

@@ -19,12 +19,16 @@ Page({
     istoright: true,
 
     toView:'',
+
+    selectId:0,
+    selectNo:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // toast组件实例
     let that = this;
     // let data = app.globalData.selectBook;
     console.log("xxxxxx");
@@ -152,18 +156,32 @@ Page({
 
   //点击事件
   bindItemTap: function (event) {
-    var novelId = event.currentTarget.dataset.data.novel_id; // 当前id
-    var chapterNo = event.currentTarget.dataset.data.chapter_num; //
-    wx.navigateTo({
-      url: '../readContent/readContent?novelId=' + novelId + '&chapterNo=' + chapterNo
-    });
+    this.setData({
+      selectId: event.currentTarget.dataset.data.novel_id, // 当前id
+      selectNo: event.currentTarget.dataset.data.chapter_num,
+    })
+    // toast组件实例
+    new app.LoginToast();
+    this.wxlogin();
   },
 
   //点击最新阅读章节
   bindCurrentItemTap: function (event) {
     let that = this;
-    var novelId = that.data.novel.novel_id; // 当前id
-    var chapterNo = that.data.novel.novel_latest_chapter_num; //
+    this.setData({
+      selectId: that.data.novel.novel_id, // 当前id
+      selectNo: that.data.novel.novel_latest_chapter_num,
+    })
+    // toast组件实例
+    new app.LoginToast();
+    this.wxlogin();
+  },
+
+  //
+  loadData : function () {
+    let that = this;
+    var novelId = that.data.selectId;
+    var chapterNo = that.data.selectNo;
     wx.navigateTo({
       url: '../readContent/readContent?novelId=' + novelId + '&chapterNo=' + chapterNo
     });
@@ -189,11 +207,11 @@ Page({
   //分享
   onShareAppMessage:function(res) {
     var that = this;
-    var openid = app.globalData.userOpenInfo.openid;
+    var openid = app.globalData.OpenIdInfo.openid;
     return {
       title: that.data.novel.novel_name,
       imageUrl: that.data.novel.novel_cover,
-      path: 'pages/read/read?novelid=' + that.data.novelId + '&share=1' + '&openid=' + openid, //pages/bookdetail/bookdetail? pages/read/read?
+      path: 'pages/read/read?novelid=' + that.data.novelId + '&share=1' + '&popenid=' + openid, //pages/bookdetail/bookdetail? pages/read/read?
       success: function (res) {
         console.log("转发成功")
       },

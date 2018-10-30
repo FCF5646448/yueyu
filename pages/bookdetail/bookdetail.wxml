@@ -1,4 +1,7 @@
-<view class="page">
+<import src="../../component/LoginToast/LoginToast.wxml"/>
+<template is="toast" data="{{ ..._toast_ }}"/> 
+
+ <view class="page">
     <view class="page-bottom">
         <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" >
           <view id="{{item.chapter_name}}" class="scroll-view-item" wx:for="{{list}}" bindtap='bindItemTap' data-data='{{item}}'>
@@ -24,8 +27,7 @@
       <view class="detail-nav">
         <image class="homeIcon" mode='aspectFit' bindtap="gohome" src="../../images/home.png"/>
         <view class="line_nav"></view>
-        <!-- <button class="button-green" bindtap="addCar" formType="submit">加入书架</button> -->
-        <button class="button-red" bindtap="readFirst" formType="submit">立即阅读</button>
+        <button class="button-red" bindtap="bindCurrentItemTap" formType="submit">立即阅读</button>
       </view>
     </view>
-</view>
+</view> 
