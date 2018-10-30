@@ -1,6 +1,6 @@
 /**app.wxss**/
 
-@import "./pages/showAuthority/showAuthority.wxss"; 
+@import "./component/LoginToast/LoginToast.wxss";
 
 .container {
   height: 100%;

@@ -12,7 +12,11 @@ Page({
   loading: false,
 
   onLoad: function () {
-    app.showLogin.show();
+    // 调用应用实例的方法获取全局数据
+    let app = getApp();
+    // toast组件实例
+    new app.LoginToast();
+    this.wxlogin();
 
     this.setData({
       appuser: app.globalData.userInfo,
