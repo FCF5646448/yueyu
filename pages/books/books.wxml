@@ -6,9 +6,9 @@
     加载中...
   </loading> -->
   <view class='userAbout'>
-    <image class="userAbout-head" src="{{appuser.avatarUrl}}" mode="cover"></image>
+    <image class="userAbout-head" src="{{wxuser.avatarUrl}}" mode="cover"></image>
     <view class="userAbout-detail">
-      <text class="userAbout-name">{{appuser.nickName}}</text>
+      <text class="userAbout-name">{{wxuser.nickName}}</text>
       <text class="userAbout-vip">会员</text>
       <view class="userAbout-tips">
           <text class="userAbout-info">{{audioData.vip_end}}</text>

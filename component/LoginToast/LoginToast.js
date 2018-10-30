@@ -6,11 +6,11 @@ let loginToast = {
   wxlogin: function () {
     //查看登录信息
     var login = wx.getStorageSync('login');
-    login = '';
     if (login.length > 0 && login == 'success') {
       console.log("已登录");
       getApp().globalData.OpenIdInfo = wx.getStorageSync('OpenIdInfo');
       getApp().globalData.wxUserInfo = wx.getStorageSync('wxUserInfo');
+      this.loadData()
     } else {
       // 登录
       console.log("未登录");
@@ -50,6 +50,7 @@ let loginToast = {
   },
 
   hide: function () {
+    this.loadData()
     this.setData({
       '_toast_.isHide': false,
     });

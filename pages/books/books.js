@@ -6,7 +6,7 @@ Page({
     list: [],
     hidden: true,
     audioData: null,
-    appuser:null,
+    wxuser:null,
     openid:"",
   },
   loading: false,
@@ -17,21 +17,17 @@ Page({
     // toast组件实例
     new app.LoginToast();
     this.wxlogin();
-
-    this.setData({
-      appuser: app.globalData.userInfo,
-      openid: app.globalData.userOpenInfo.openid,
-    })
-    this.loadData()
-    wx.hideOptionMenu();
   },
 
   loadData: function () {
     var that = this;
     this.setData({
       hidden: false,
+      wxuser: app.globalData.wxUserInfo,
+      openid: app.globalData.OpenIdInfo.openid,
+
     })
-    console.log("xxxxxxx");
+    console.log("loadData");
     console.log(that.data.openid);
     wx.request({
       url: app.globalData.serverHost + '/api/v1/novels/records?open_id=' + that.data.openid,
