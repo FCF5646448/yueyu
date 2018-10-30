@@ -1,5 +1,5 @@
 <!--pages/readContent/readContent.wxml-->
-<view>
+<!-- <view>
   <view class='readcontentxxxx'>
     <text class="detailxxxx">{{info.chapter_content}}</text>
   </view>
@@ -8,4 +8,14 @@
     <button class='button-last' catchtap='lastchapter'>上一章</button> 
     <button class="button-next" catchtap='nextchapter'>下一章</button>
   </view>
-</view>
+</view> -->
+<scroll-view scroll-y="true" style="height: 100%;">
+  <view class='readcontentxxxx'>
+    <text class="detailxxxx">{{info.chapter_content}}</text>
+  </view>
+  
+  <view class='catalogue' wx:if="{{info.chapter_content.length > 0}}" >
+    <button class='button-last' catchtap='lastchapter'>上一章</button> 
+    <button class="button-next" catchtap='nextchapter'>下一章</button>
+  </view>
+</scroll-view>

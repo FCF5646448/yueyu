@@ -48,6 +48,10 @@ Page({
           wx.setNavigationBarTitle({
             title: res.data.info.chapter_name
           })
+          wx.pageScrollTo({
+            scrollTop: 0,
+            duration: 1,
+          })
         }
       }
     })
