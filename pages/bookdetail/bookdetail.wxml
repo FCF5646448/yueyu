@@ -10,7 +10,7 @@
         </scroll-view>
     </view>
 
-    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" class="page-top {{open ? 'c-state1' : ''}}">
       <view class='detail-info'>
         <image class="big-img" src="{{novel.novel_cover}}"></image>
         <view class='detail-intro'>
@@ -18,7 +18,7 @@
           <text class="intro">{{novel.novel_abstract}}</text>
         </view>
         <view class='catalogue'>
-          <button class='button-catalogue_nav' catchtap='tap_ch'>目录</button> 
+          <button class='button-catalogue_nav' bindtouchstart="tap_start" catchtap='tap_ch'>目录</button> 
           <button class="button-catalogue" bindtap='bindCurrentItemTap'>{{novel.novel_latest_chapter_name}}</button>
           <image class="catalogue-rightIcon" mode='aspectFit' src="../../images/rarrow.png"/>
         </view>

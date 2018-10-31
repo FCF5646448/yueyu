@@ -17,6 +17,7 @@ Page({
     mark: 0,
     newmark: 0,
     istoright: true,
+    iscatalogtapped: true,
 
     toView:'',
 
@@ -86,10 +87,14 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.setData({
-          list: res.data.info,
-          toView: "第八百六十六章 不死之身",//res.data.info.novel_latest_chapter_name,
+          list: res.data.info,//res.data.info.novel_latest_chapter_name,
           hidden: true,
         });
+
+        // setTimeout(function () {
+        //   that.setData({ toView: "第六百六十四章 冥都来客" })
+        // }, 3000)
+
       }
     })
   },
@@ -111,11 +116,13 @@ Page({
   tap_start: function (e) {
     console.log("tap_start")
     // touchstart事件
+    this.iscatalogtapped = true
     this.data.mark = this.data.newmark = e.touches[0].pageX;
   },
   tap_drag: function (e) {
     // touchmove事件
     console.log("tap_start")
+    this.iscatalogtapped = false
     /*
      * 手指从左向右移动
      * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
@@ -133,13 +140,21 @@ Page({
 
     }
     this.data.mark = this.data.newmark;
-  
   },
 
   tap_end: function (e) {
     // touchend事件
     this.data.mark = 0;
     this.data.newmark = 0;
+
+    if (e.currentTarget.id == "catalogbtn") {
+      console.log('按钮点击接触')
+      return
+    }
+    if (this.iscatalogtapped) {
+      return
+    }
+    
     if (this.istoright) {
       console.log("open1")
       this.setData({

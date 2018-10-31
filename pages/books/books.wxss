@@ -8,15 +8,18 @@
   /* background: gray; */
 }
 .userAbout-head {
-  flex: 1;
+  overflow: hidden;
+  flex: 0 0 3rem;
+  height: 3rem;
   /* display: block;  */
-  margin: 0px 10px; 
-  /* border: 1px solid #e6e8eb;  */
-    height: 100%;   
+  margin: 0.5rem 10px; 
+  border: 1px solid #e6e8eb;  
+    /* height: 100%;    */
    /* width: 20%;   */
-  border-radius: 10px; 
+  border-radius: 100%; 
     /* position:relative;   */
-  /* background-color: blue; */
+   /* background-color: blue;  */
+
 }
 .userAbout-detail {
   height: 4rem;
