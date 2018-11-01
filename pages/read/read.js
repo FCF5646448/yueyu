@@ -42,6 +42,9 @@ Page({
     // console.log(options)
 
     if (options.share == 1) {
+      // console.log("share openids");
+      // console.log(options.popenid);
+      // console.log("share openide");
       wx.navigateTo({
         url: '../bookdetail/bookdetail?novelid=' + options.novelid,
       });

@@ -4,9 +4,9 @@ import { LoginToast } from './component/LoginToast/LoginToast'
 App({
   LoginToast,
   onLaunch: function () {
-    wx.setEnableDebug({
-      enableDebug: true //调试模式
-    })
+    // wx.setEnableDebug({
+    //   enableDebug: true //调试模式
+    // })
     // wx.clearStorage(); //测试清理本地缓存
 
   },
