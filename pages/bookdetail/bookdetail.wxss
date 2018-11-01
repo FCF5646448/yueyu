@@ -84,7 +84,7 @@
 } */
 
 .detail-intro{
-  line-height: 80rpx;
+  line-height: 60rpx;
   padding: 10px 10px 10px 10px;  
 }
 

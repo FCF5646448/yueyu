@@ -1,12 +1,16 @@
 /* pages/readContent/readContent.wxss */
 .readcontentxxxx {
-  line-height: 80rpx;
-  padding: 0px 10px 10px 10px;  
+  /* display:block; */
+  line-height: 70rpx;
+  padding: 0px 15rpx 15rpx 15rpx;  
 }
 
 .detailxxxx {
-  font-size: 0.85rem;
-  /* color: #828a92; */
+  font-size: 40rpx;
+}
+
+view,text{
+    word-break: break-all;
 }
 
 .catalogue {
