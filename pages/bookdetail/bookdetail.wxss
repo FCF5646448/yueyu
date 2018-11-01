@@ -54,9 +54,9 @@
 }
 
 .item-name {
-  font-size: .75rem;
+  font-size: 0.85rem;
   overflow: hidden;
-  color: #828a92;
+  /* color: #828a92; */
   /* height: 2.5rem; */
   /* display: block; */
 }
@@ -84,6 +84,7 @@
 } */
 
 .detail-intro{
+  line-height: 80rpx;
   padding: 10px 10px 10px 10px;  
 }
 
@@ -93,8 +94,8 @@
 
 .intro {
   width: 100%;
-  font-size: .75rem;
-  color: #828a92;
+  font-size: .85rem;
+  /* color: #828a92; */
 }
 
 .catalogue {
@@ -129,8 +130,8 @@
 
 .button-catalogue {
   background-color: white;
-  font-size: .75rem;
-  color: #828a92;
+  font-size: .85rem;
+  /* color: #828a92; */
 }
 
 .button-catalogue::after {

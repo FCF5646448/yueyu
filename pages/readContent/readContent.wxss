@@ -1,13 +1,12 @@
 /* pages/readContent/readContent.wxss */
 .readcontentxxxx {
-    padding: 0px 10px 10px 10px;  
+  line-height: 80rpx;
+  padding: 0px 10px 10px 10px;  
 }
 
 .detailxxxx {
-  /* padding-left: 5px;
-  padding-right: 1px; */
-  font-size: .85rem;
-  color: #828a92;
+  font-size: 0.85rem;
+  /* color: #828a92; */
 }
 
 .catalogue {
